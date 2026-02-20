@@ -1,11 +1,18 @@
 {
-  "devDependencies": {
-    "vitepress": "2.0.0-alpha.16"
-  },
-  "packageManager": "pnpm@10.30.1+sha512.3590e550d5384caa39bd5c7c739f72270234b2f6059e13018f975c313b1eb9fefcc09714048765d4d9efe961382c312e624572c0420762bdc5d5940cdf9be73a",
-  "scripts": {
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
-  }
+	"name": "metamaterial-works-website",
+	"version": "0.0.1",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"docs:dev": "vitepress dev",
+		"docs:build": "vitepress build",
+		"docs:preview": "vitepress preview",
+		"lint:spell": "cspell --config ./cspell.yaml \"**/*.{ts,md,json,vue}\" --verbose --show-perf-summary"
+	},
+	"devDependencies": {
+		"@cspell/dict-vue": "^3.0.5",
+		"cspell": "^9.6.4",
+		"vitepress": "2.0.0-alpha.16"
+	},
+	"packageManager": "pnpm@10.30.1+sha512.3590e550d5384caa39bd5c7c739f72270234b2f6059e13018f975c313b1eb9fefcc09714048765d4d9efe961382c312e624572c0420762bdc5d5940cdf9be73a"
 }
