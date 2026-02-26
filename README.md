@@ -1,33 +1,27 @@
 # Metamaterial Works Website
 
-## Prerequisites
-
-- [Node.js](https://nodejs.org/en/download/)
-- [pnpm](https://pnpm.io/installation) (or enable via `corepack enable`)
-
-## Setup
-
-Install dependencies:
-
-```bash
-pnpm install
-```
+Main repository for the Metamaterial Works website.
 
 ## Development
 
-Start the local development server:
+### Setup
 
-```bash
-pnpm docs:dev
-```
+1. Install [Node.js](https://nodejs.org/en/download/)
+2. Enable [corepack](https://nodejs.org/api/corepack.html) and install pnpm: `corepack enable && corepack prepare pnpm@latest --activate`
+3. Install dependencies: `pnpm install`
 
-## Build
+### Local Development
 
-Build the site for production:
+1. Start the development server: `pnpm docs:dev`
+2. Access the local server at http://localhost:5173
 
-```bash
-pnpm docs:build
-```
+### Build
+
+To build the static files for deployment, run `pnpm docs:build`. The static files will be generated in the `.vitepress/dist` directory.
+
+### Preview
+
+The production build of the website is minified and optimized. To preview the production build, run `pnpm docs:preview`.
 
 ## Adding Content
 
