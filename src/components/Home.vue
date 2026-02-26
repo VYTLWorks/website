@@ -331,9 +331,15 @@ const props = withDefaults(
 
 .team-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-columns: repeat(3, 1fr);
 	gap: 2rem;
 	margin-top: 3rem;
+}
+
+@media (max-width: 1024px) {
+	.team-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 .team-actions {
