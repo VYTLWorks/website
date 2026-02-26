@@ -199,6 +199,7 @@ const props = withDefaults(
 .hero-logo {
 	width: 200px;
 	height: auto;
+	padding-bottom: 3rem;
 }
 
 .hero-title {
