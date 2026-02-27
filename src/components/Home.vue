@@ -5,12 +5,11 @@
 			<div class="container">
 				<img :src="logoSrc" alt="Logo" class="hero-logo" />
 				<h1 class="hero-title">
-					Lorem Ipsum Dolor
-					<span class="gradient-text">Sit Amet Consectetur</span>
+					We absorb shocks 
+					<span class="gradient-text">so you don't have to.</span>
 				</h1>
 				<p class="hero-subtitle">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					MetaSafe BV is a wholly owned subsidiary of MetaMaterial Works BV.
 				</p>
 				<div class="hero-actions">
 					<a
@@ -119,8 +118,8 @@ import ThemeToggle from "../components/ThemeToggle.vue";
 import { FEATURE_CARDS, TEAM_MEMBERS, STATS } from "./home-data";
 import { constructLocaleWithLocaleSegment } from "../utils/pathHelper";
 import StatItem from "../components/StatItem.vue";
-// @ts-expect-error - svg import
-import logoSrc from "../assets/svg/logo.svg";
+// @ts-expect-error - png import
+import logoSrc from "../assets/svg/MetaSafe_logo_3.2.png";
 // @ts-expect-error - svg import
 import videoSrc from "../assets/video/AMSIA.mp4";
 
@@ -199,7 +198,6 @@ const props = withDefaults(
 .hero-logo {
 	width: 200px;
 	height: auto;
-	padding-bottom: 3rem;
 }
 
 .hero-title {
@@ -331,15 +329,9 @@ const props = withDefaults(
 
 .team-grid {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 2rem;
 	margin-top: 3rem;
-}
-
-@media (max-width: 1024px) {
-	.team-grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
 }
 
 .team-actions {
