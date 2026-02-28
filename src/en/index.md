@@ -5,7 +5,7 @@ navbar: false
 ---
 
 <script setup>
-import Home from '../components/Home.vue'
+import HomePageContent from '../components/home-page-content.vue'
 </script>
 
-<Home locale="en" />
+<HomePageContent locale="en" />

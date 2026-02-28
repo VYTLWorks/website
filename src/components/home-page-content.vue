@@ -1,28 +1,21 @@
 <template>
 	<div class="home">
-		<ThemeToggle />
+		<theme-toggle />
 		<section class="hero">
 			<div class="container">
 				<img :src="logoSrc" alt="Logo" class="hero-logo" />
 				<h1 class="hero-title">
-					Lorem Ipsum Dolor
-					<span class="gradient-text">Sit Amet Consectetur</span>
+					We absorb shocks
+					<span class="gradient-text">so you don't have to.</span>
 				</h1>
 				<p class="hero-subtitle">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					MetaSafe BV is a wholly owned subsidiary of MetaMaterial Works BV.
 				</p>
 				<div class="hero-actions">
-					<a
-						:href="constructLocaleWithLocaleSegment(locale, '/product/')"
-						class="btn btn-primary"
-					>
+					<a :href="constructLocaleWithLocaleSegment(locale, '/product/')" class="btn btn-primary">
 						Product
 					</a>
-					<a
-						:href="constructLocaleWithLocaleSegment(locale, '/about/')"
-						class="btn btn-secondary"
-					>
+					<a :href="constructLocaleWithLocaleSegment(locale, '/about/')" class="btn btn-secondary">
 						About Us
 					</a>
 				</div>
@@ -30,19 +23,22 @@
 		</section>
 		<section class="section video-highlight">
 			<div class="container">
-				<h2 class="section-title">Lorem Ipsum Video</h2>
+				<h2 class="section-title">Understanding MetaSafe</h2>
 				<p class="section-subtitle">
-					Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+					The science and technology behind MetaSafe's advanced protection solutions.
 				</p>
-				<VideoSection :videoUrl="videoSrc" />
+				<video-section :videoUrl="videoSrc" />
 			</div>
 		</section>
 		<section class="section features">
 			<div class="container">
-				<h2 class="section-title">Lorem Ipsum Dolor</h2>
+				<h2 class="section-title">Key Features</h2>
+				<p class="section-subtitle">
+					Discover the innovative features that make MetaSafe's protection solutions stand out.
+				</p>
 				<div class="features-grid">
-					<FeatureCard
-						v-for="props in FEATURE_CARDS"
+					<feature-card
+						v-for="props in BENEFIT_CARDS"
 						:key="props.title"
 						:title="props.title"
 						:description="props.description"
@@ -52,33 +48,18 @@
 				</div>
 			</div>
 		</section>
-		<section class="section stats">
-			<div class="container">
-				<div class="stats-grid">
-					<StatItem
-						v-for="stat in STATS"
-						:key="stat.label"
-						:number="stat.number"
-						:label="stat.label"
-					/>
-				</div>
-			</div>
-		</section>
 		<section class="section team-section">
 			<div class="container">
-				<h2 class="section-title">Lorem Ipsum Team</h2>
+				<h2 class="section-title">Leadership</h2>
 				<p class="section-subtitle">
-					Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+					MetaSafe is led by experienced co-founders combining academic research excellence with
+					industrial expertise
 				</p>
-				<div class="team-grid">
-					<TeamMemberCard
-						v-for="props in TEAM_MEMBERS"
-						:key="props.name"
-						:name="props.name"
-						:role="props.role"
-						:image="props.image"
-						:description="props.description"
-						:social="props.social"
+				<div class="leadership-card-container">
+					<leadership-card
+						v-for="leadershipMember in LEADERSHIP_MEMBERS"
+						:key="leadershipMember.name"
+						v-bind="leadershipMember"
 					/>
 				</div>
 				<div class="team-actions">
@@ -86,7 +67,7 @@
 						:href="constructLocaleWithLocaleSegment(locale, '/team/')"
 						class="btn btn-primary btn-lg"
 					>
-						Meet the Team
+						Meet the Full Team
 					</a>
 				</div>
 			</div>
@@ -94,17 +75,15 @@
 		<section class="section news-section">
 			<div class="container">
 				<div class="news-content">
-					<h2 class="news-title">Want to Know More?</h2>
-					<p class="news-text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-						eiusmod tempor incididunt ut labore.
-					</p>
-					<a
-						:href="constructLocaleWithLocaleSegment(locale, '/news/')"
-						class="btn btn-primary"
-					>
-						Read Our News</a
-					>
+					<div class="news-tagline">
+						<h2 class="news-title">Want to Know More?</h2>
+						<p class="news-text">
+							Stay updated with the latest news, insights, and developments from MetaSafe.
+						</p>
+					</div>
+					<a :href="constructLocaleWithLocaleSegment(locale, '/news/')" class="btn btn-primary">
+						Read Our News
+					</a>
 				</div>
 			</div>
 		</section>
@@ -112,24 +91,25 @@
 </template>
 
 <script setup lang="ts">
-import FeatureCard from "../components/FeatureCard.vue";
-import VideoSection from "../components/VideoSection.vue";
-import TeamMemberCard from "../components/TeamMemberCard.vue";
-import ThemeToggle from "../components/ThemeToggle.vue";
-import { FEATURE_CARDS, TEAM_MEMBERS, STATS } from "./home-data";
-import { constructLocaleWithLocaleSegment } from "../utils/pathHelper";
-import StatItem from "../components/StatItem.vue";
+import VideoSection from '../components/video-section.vue';
+import ThemeToggle from '../components/theme-toggle.vue';
+import FeatureCard from './feature-card.vue';
+import { BENEFIT_CARDS } from './home-page-data';
+import { LEADERSHIP_MEMBERS } from './team/team-page-data';
+import { constructLocaleWithLocaleSegment } from '../utils/path-helper';
+import LeadershipCard from './team/leadership-card.vue';
+
+// @ts-expect-error - png import
+import logoSrc from '../assets/branding/MetaSafe_logo_3.2.png';
 // @ts-expect-error - svg import
-import logoSrc from "../assets/svg/logo.svg";
-// @ts-expect-error - svg import
-import videoSrc from "../assets/video/AMSIA.mp4";
+import videoSrc from '../assets/video/AMSIA.mp4';
 
 const props = withDefaults(
 	defineProps<{
 		locale?: string;
 	}>(),
 	{
-		locale: "en",
+		locale: 'en',
 	},
 );
 </script>
@@ -189,17 +169,12 @@ const props = withDefaults(
 	text-align: center;
 	align-items: center;
 	justify-content: center;
-	background: linear-gradient(
-		135deg,
-		var(--bg-primary) 0%,
-		var(--bg-secondary) 100%
-	);
+	background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
 
 .hero-logo {
 	width: 200px;
 	height: auto;
-	padding-bottom: 3rem;
 }
 
 .hero-title {
@@ -212,11 +187,7 @@ const props = withDefaults(
 
 .gradient-text {
 	background-clip: text;
-	background: linear-gradient(
-		135deg,
-		var(--color-primary) 0%,
-		var(--color-secondary) 100%
-	);
+	background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -329,17 +300,13 @@ const props = withDefaults(
 	background: var(--bg-primary);
 }
 
-.team-grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 2rem;
-	margin-top: 3rem;
-}
-
-@media (max-width: 1024px) {
-	.team-grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
+.leadership-card-container {
+	gap: 1rem;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
 }
 
 .team-actions {
@@ -350,11 +317,7 @@ const props = withDefaults(
 
 .news-section {
 	width: 100%;
-	background: linear-gradient(
-		135deg,
-		var(--color-primary) 0%,
-		var(--color-secondary) 100%
-	);
+	background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
 	margin-top: auto;
 	padding-bottom: 5rem;
 }
@@ -368,18 +331,26 @@ const props = withDefaults(
 	justify-content: center;
 }
 
+.news-tagline {
+	gap: 0.75rem;
+	display: flex;
+	align-items: center;
+	padding-bottom: 2rem;
+	flex-direction: column;
+}
+
 .news-title {
+	margin: 0;
 	color: white;
 	font-size: 2rem;
 	font-weight: 700;
 }
 
 .news-text {
+	margin: 0;
 	font-size: 1rem;
-	color: rgba(255, 255, 255, 0.9);
-	max-width: 600px;
-	margin: 0 auto 2rem;
 	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.9);
 }
 
 .news-section .btn-primary {
@@ -389,9 +360,12 @@ const props = withDefaults(
 }
 
 .news-section .btn-primary:hover {
-	background: rgba(255, 255, 255, 0.9);
-	color: var(--color-primary);
+	color: white;
 	transform: translateY(-2px);
+	box-shadow: var(--shadow-lg);
+	background: var(--color-primary);
+	border-color: var(--color-primary);
+	transition: all 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -408,11 +382,6 @@ const props = withDefaults(
 	}
 
 	.features-grid {
-		grid-template-columns: 1fr;
-		gap: 1.5rem;
-	}
-
-	.team-grid {
 		grid-template-columns: 1fr;
 		gap: 1.5rem;
 	}

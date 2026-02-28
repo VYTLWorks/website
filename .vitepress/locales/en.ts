@@ -1,63 +1,50 @@
-import type { DefaultTheme, LocaleSpecificConfig } from "vitepress";
-import { generateSidebar } from "../internal/sidebar";
-
-function nav(): DefaultTheme.NavItem[] {
-	return [
-		{
-			text: "About",
-			link: "/en/about/",
-			activeMatch: "/en/about/",
-		},
-		{
-			text: "Product",
-			link: "/en/product/",
-			activeMatch: "/en/product/",
-		},
-		{
-			text: "Team",
-			link: "/en/team/",
-			activeMatch: "/en/team/",
-		},
-		{
-			text: "News",
-			link: "/en/news/",
-			activeMatch: "/en/news/",
-		},
-	];
-}
+import type { DefaultTheme, LocaleSpecificConfig } from 'vitepress';
+import { generateSidebar } from '../internal/sidebar';
 
 function sidebar(): DefaultTheme.SidebarItem[] {
-	return generateSidebar({
-		locale: "en",
-		srcDir: "src",
+	const mainItems = generateSidebar({
+		locale: 'en',
+		srcDir: 'src',
 		collapsed: true,
-		ignoreList: ["Home.vue", "home-data.ts"],
+		useFrontmatterTitle: true,
+		ignoreList: ['Home.vue', 'home-data.ts', 'news'],
+	});
+
+	const newsItems = generateSidebar({
+		locale: 'en',
+		srcDir: 'src',
+		rootPath: 'news',
+		collapsed: true,
+		sortOrder: 'desc',
+		wrapInGroup: true,
+		sortBy: 'created_at',
 		useFrontmatterTitle: true,
 	});
+
+	return [...mainItems, ...newsItems];
 }
 
 export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
-	title: "Metamaterial Works",
-	description: "Metamaterial Works",
+	title: 'MetaSafe',
+	description: 'MetaSafe - Advanced Protection Solutions',
 	themeConfig: {
-		logoLink: "/en/",
-		nav: nav(),
+		logoLink: '/en/',
 		sidebar: sidebar(),
 		docFooter: {
-			prev: "Previous page",
-			next: "Next page",
+			prev: 'Previous page',
+			next: 'Next page',
 		},
 		outline: {
-			label: "On this page",
+			label: 'On this page',
 		},
 		lastUpdated: {
-			text: "Last updated",
+			text: 'Last updated',
 		},
-		langMenuLabel: "Change language",
-		returnToTopLabel: "Return to top",
-		sidebarMenuLabel: "Menu",
-		darkModeSwitchLabel: "Appearance",
-		lightModeSwitchTitle: "Switch to light theme",
-		darkModeSwitchTitle: "Switch to dark theme",
+		langMenuLabel: 'Change language',
+		returnToTopLabel: 'Return to top',
+		sidebarMenuLabel: 'Menu',
+		darkModeSwitchLabel: 'Appearance',
+		lightModeSwitchTitle: 'Switch to light theme',
+		darkModeSwitchTitle: 'Switch to dark theme',
 	},
 };
