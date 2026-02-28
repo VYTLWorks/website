@@ -17,7 +17,7 @@
 					:href="social.linkedin"
 					aria-label="LinkedIn"
 					target="_blank"
-					rel="noopener"
+					rel="noopener noreferrer"
 				>
 					<i class="fab fa-linkedin"></i>
 				</a>
@@ -29,7 +29,7 @@
 					:href="social.website"
 					aria-label="Website"
 					target="_blank"
-					rel="noopener"
+					rel="noopener noreferrer"
 				>
 					<i class="fas fa-globe"></i>
 				</a>
