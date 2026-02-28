@@ -1,6 +1,6 @@
 <template>
 	<section class="news-section">
-		<div class="news-grid">
+		<div class="news-list-container">
 			<div v-for="news in sortedNewsItems" :key="news.title" class="news-card">
 				<NewsListItem v-bind="news" />
 			</div>
@@ -24,4 +24,16 @@ const sortedNewsItems = computed<NewsItemProps[]>(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.news-section {
+	width: 100%;
+	padding: 1.5rem 0;
+}
+
+.news-list-container {
+	width: 100%;
+	gap: 0.75rem;
+	display: flex;
+	flex-direction: column;
+}
+</style>
