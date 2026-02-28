@@ -187,7 +187,7 @@ function sortFileInfos(
 		} else if (sortBy === 'created_at') {
 			const dateA = a.frontmatter?.created_at ? new Date(a.frontmatter.created_at).getTime() : 0;
 			const dateB = b.frontmatter?.created_at ? new Date(b.frontmatter.created_at).getTime() : 0;
-			comparison = dateB - dateA; // Most recent first by default
+			comparison = dateA - dateB; // Ascending by date; sortOrder controls final direction
 		}
 
 		// Fallback to name if values are equal
