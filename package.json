@@ -2,17 +2,27 @@
 	"name": "metasafe-bv-website",
 	"version": "0.0.1",
 	"private": true,
+	"description": "Main repository for the Metamaterial Works website.",
+	"bugs": {
+		"url": "https://github.com/MetaSafeBV/website/issues"
+	},
+	"license": "Proprietary License",
+	"author": "MetaSafe BV",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MetaSafeBV/website.git"
+	},
 	"type": "module",
 	"scripts": {
-		"docs:dev": "vitepress dev",
 		"docs:build": "vitepress build",
-		"docs:preview": "vitepress preview",
 		"docs:build:analyze": "vitepress build --analyze",
-		"lint:spell": "cspell --config ./cspell.yaml \"**/*.{ts,md,json,vue}\" --verbose",
+		"docs:dev": "vitepress dev",
+		"docs:preview": "vitepress preview",
 		"fmt": "oxfmt",
 		"fmt:check": "oxfmt --check",
 		"lint": "oxlint",
-		"lint:fix": "oxlint --fix"
+		"lint:fix": "oxlint --fix",
+		"lint:spell": "cspell --config ./cspell.yaml \"**/*.{ts,md,json,vue}\" --verbose"
 	},
 	"devDependencies": {
 		"@cspell/dict-vue": "^3.0.5",
