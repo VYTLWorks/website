@@ -27,13 +27,26 @@ function nav(): DefaultTheme.NavItem[] {
 }
 
 function sidebar(): DefaultTheme.SidebarItem[] {
-	return generateSidebar({
+	const mainItems = generateSidebar({
 		locale: "en",
 		srcDir: "src",
 		collapsed: true,
-		ignoreList: ["Home.vue", "home-data.ts"],
+		useFrontmatterTitle: true,
+		ignoreList: ["Home.vue", "home-data.ts", "news"],
+	});
+
+	const newsItems = generateSidebar({
+		locale: "en",
+		srcDir: "src",
+		rootPath: "news",
+		collapsed: true,
+		sortOrder: "desc",
+		wrapInGroup: true,
+		sortBy: "created_at",
 		useFrontmatterTitle: true,
 	});
+
+	return [...mainItems, ...newsItems];
 }
 
 export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
@@ -41,7 +54,6 @@ export const en: LocaleSpecificConfig<DefaultTheme.Config> = {
 	description: "MetaSafe - Advanced Protection Solutions",
 	themeConfig: {
 		logoLink: "/en/",
-		nav: nav(),
 		sidebar: sidebar(),
 		docFooter: {
 			prev: "Previous page",

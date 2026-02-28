@@ -1,77 +1,31 @@
-import { FeatureCardProps, StatItemProps, TeamMemberCardProps } from "./types";
+import { FeatureCardProps } from "./types";
 
-export const FEATURE_CARDS = [
+export const BENEFIT_CARDS = [
 	{
-		title: "Consectetur",
+		title: "Significant Weight Reduction",
 		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+			"Without compromising crash performance, enabling increased driving range and reduced CO₂ footprint.",
 		iconColor: "var(--color-secondary)",
-		icon: "fas fa-rocket",
+		icon: "fa-solid fa-weight-hanging",
 	},
 	{
-		title: "Adipiscing",
+		title: "Tuneable, High-Energy Absorption",
 		description:
-			"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+			"Compact form factor delivers superior protection in minimal space.",
 		iconColor: "var(--color-primary)",
-		icon: "fas fa-lightbulb",
+		icon: "fa-solid fa-gauge",
 	},
 	{
-		title: "Eiusmod",
-		description:
-			"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.",
+		title: "Manufacturing Compatibility",
+		description: "Works with industrial manufacturing routes",
 		iconColor: "var(--color-accent)",
-		icon: "fas fa-shield-alt",
+		icon: "fa-solid fa-industry",
 	},
 	{
-		title: "Tempor",
+		title: "Cost-Neutral Integration",
 		description:
-			"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
+			"Seamlessly integrates into existing battery‑box designs without premium costs.",
 		iconColor: "var(--color-secondary)",
-		icon: "fas fa-cog",
+		icon: "fa-solid fa-money-bill-wave",
 	},
 ] as const satisfies FeatureCardProps[];
-
-export const TEAM_MEMBERS = [
-	{
-		name: "Lorem Ipsum",
-		role: "Dolor Sit",
-		image: "https://via.placeholder.com/400x400/FF5758/FFFFFF?text=LI",
-		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.",
-		social: {
-			linkedin: "#",
-			twitter: "#",
-			github: "#",
-		},
-	},
-	{
-		name: "Consectetur Elit",
-		role: "Adipiscing",
-		image: "https://via.placeholder.com/400x400/00A6A6/FFFFFF?text=CE",
-		description:
-			"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
-		social: {
-			linkedin: "#",
-			github: "#",
-		},
-	},
-	{
-		name: "Tempor Incididunt",
-		role: "Eiusmod",
-		image: "https://via.placeholder.com/400x400/4AB3F4/FFFFFF?text=TI",
-		description:
-			"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-		social: {
-			linkedin: "#",
-			twitter: "#",
-		},
-	},
-] as const satisfies TeamMemberCardProps[];
-
-// demo data
-export const STATS = [
-	{ number: "10+", label: "Lorem Ipsum" },
-	{ number: "500+", label: "Dolor Sit" },
-	{ number: "50+", label: "Consectetur" },
-	{ number: "99%", label: "Adipiscing" },
-] as const satisfies StatItemProps[];

@@ -1,3 +1,8 @@
+---
+layout: doc
+title: Product
+---
+
 # MetaSafe Technology
 
 ## Revolutionary Dissipative Metamaterials for BEV Battery Protection
@@ -7,25 +12,32 @@ Our technology introduces a new class of dissipative metamaterials engineered fo
 ## Key Benefits
 
 ### **Significant Weight Reduction**
+
 Without compromising crash performance, enabling increased driving range and reduced CO₂ footprint.
 
-### **Tuneable, High-Energy Absorption**  
+### **Tuneable, High-Energy Absorption**
+
 Compact form factor delivers superior protection in minimal space.
 
 ### **Manufacturing Compatibility**
+
 Works with industrial manufacturing routes:
+
 - Stamping
-- Joining  
+- Joining
 - Extrusion
 - Additive manufacturing
 
 ### **Cost-Neutral Integration**
+
 Seamlessly integrates into existing battery‑box designs without premium costs.
 
 ### **Material Flexibility**
+
 Compatible with multiple material systems:
+
 - Steel
-- Aluminium  
+- Aluminium
 - Polymers
 - Composites
 

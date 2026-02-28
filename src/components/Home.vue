@@ -5,7 +5,7 @@
 			<div class="container">
 				<img :src="logoSrc" alt="Logo" class="hero-logo" />
 				<h1 class="hero-title">
-					We absorb shocks 
+					We absorb shocks
 					<span class="gradient-text">so you don't have to.</span>
 				</h1>
 				<p class="hero-subtitle">
@@ -31,7 +31,8 @@
 			<div class="container">
 				<h2 class="section-title">Understanding MetaSafe</h2>
 				<p class="section-subtitle">
-					The science and technology behind MetaSafe's advanced protection solutions.
+					The science and technology behind MetaSafe's advanced protection
+					solutions.
 				</p>
 				<VideoSection :videoUrl="videoSrc" />
 			</div>
@@ -40,11 +41,12 @@
 			<div class="container">
 				<h2 class="section-title">Key Features</h2>
 				<p class="section-subtitle">
-					Discover the innovative features that make MetaSafe's protection solutions stand out.
+					Discover the innovative features that make MetaSafe's protection
+					solutions stand out.
 				</p>
 				<div class="features-grid">
 					<FeatureCard
-						v-for="props in FEATURE_CARDS"
+						v-for="props in BENEFIT_CARDS"
 						:key="props.title"
 						:title="props.title"
 						:description="props.description"
@@ -54,37 +56,19 @@
 				</div>
 			</div>
 		</section>
-		<section class="section stats">
-			<div class="container">
-				<div class="stats-grid">
-					<StatItem
-						v-for="stat in STATS"
-						:key="stat.label"
-						:number="stat.number"
-						:label="stat.label"
-					/>
-				</div>
-			</div>
-		</section>
 		<section class="section team-section">
 			<div class="container">
 				<h2 class="section-title">Leadership</h2>
 				<p class="section-subtitle">
-					MetaSafe is led by experienced co-founders combining academic research excellence with industrial expertise
+					MetaSafe is led by experienced co-founders combining academic research
+					excellence with industrial expertise
 				</p>
-				<div class="leadership-grid">
-					<div class="leadership-card">
-						<img src="/assets/team/Bernard_C12_0740_head.jpg" alt="Bernard" class="leadership-photo" />
-						<h3>Bernard Ennis</h3>
-						<p class="leadership-role">Co-Founder & CEO</p>
-						<p class="leadership-expertise">30+ years industrial experience in Automotive, Marine and Electrical sectors</p>
-					</div>
-					<div class="leadership-card">
-						<img src="/assets/team/Corentin_C12_0783_profile.jpg" alt="Corentin" class="leadership-photo" />  
-						<h3>Corentin Coulais</h3>
-						<p class="leadership-role">Co-Founder & CSO</p>
-						<p class="leadership-expertise">Associate Professor, University of Amsterdam</p>
-					</div>
+				<div class="leadership-card-container">
+					<LeadershipCard
+						v-for="leadershipMember in LEADERSHIP_MEMBERS"
+						:key="leadershipMember.name"
+						v-bind="leadershipMember"
+					/>
 				</div>
 				<div class="team-actions">
 					<a
@@ -99,17 +83,19 @@
 		<section class="section news-section">
 			<div class="container">
 				<div class="news-content">
-					<h2 class="news-title">Want to Know More?</h2>
-					<p class="news-text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-						eiusmod tempor incididunt ut labore.
-					</p>
+					<div class="news-tagline">
+						<h2 class="news-title">Want to Know More?</h2>
+						<p class="news-text">
+							Stay updated with the latest news, insights, and developments from
+							MetaSafe.
+						</p>
+					</div>
 					<a
 						:href="constructLocaleWithLocaleSegment(locale, '/news/')"
 						class="btn btn-primary"
 					>
-						Read Our News</a
-					>
+						Read Our News
+					</a>
 				</div>
 			</div>
 		</section>
@@ -117,12 +103,14 @@
 </template>
 
 <script setup lang="ts">
-import FeatureCard from "../components/FeatureCard.vue";
 import VideoSection from "../components/VideoSection.vue";
 import ThemeToggle from "../components/ThemeToggle.vue";
-import { FEATURE_CARDS, STATS } from "./home-data";
+import FeatureCard from "../components/FeatureCard.vue";
+import { BENEFIT_CARDS } from "./home-data";
+import { LEADERSHIP_MEMBERS } from "./team/team";
 import { constructLocaleWithLocaleSegment } from "../utils/pathHelper";
-import StatItem from "../components/StatItem.vue";
+import LeadershipCard from "./team/LeadershipCard.vue";
+
 // @ts-expect-error - png import
 import logoSrc from "../assets/branding/MetaSafe_logo_3.2.png";
 // @ts-expect-error - svg import
@@ -339,46 +327,13 @@ const props = withDefaults(
 	margin-top: 3rem;
 }
 
-.leadership-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-	gap: 3rem;
-	margin-top: 3rem;
-	justify-items: center;
-}
-
-.leadership-card {
-	text-align: center;
-	max-width: 300px;
-}
-
-.leadership-photo {
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	object-fit: cover;
-	margin-bottom: 1rem;
-	border: 3px solid var(--color-primary);
-}
-
-.leadership-card h3 {
-	margin: 0.5rem 0;
-	font-size: 1.25rem;
-	font-weight: 600;
-	color: var(--text-primary);
-}
-
-.leadership-role {
-	color: var(--color-primary);
-	font-weight: 500;
-	margin: 0.5rem 0;
-	font-size: 0.9rem;
-}
-
-.leadership-expertise {
-	color: var(--text-secondary);
-	font-size: 0.85rem;
-	margin: 0;
+.leadership-card-container {
+	gap: 1rem;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
 }
 
 .team-actions {
@@ -407,18 +362,26 @@ const props = withDefaults(
 	justify-content: center;
 }
 
+.news-tagline {
+	gap: 0.75rem;
+	display: flex;
+	align-items: center;
+	padding-bottom: 2rem;
+	flex-direction: column;
+}
+
 .news-title {
+	margin: 0;
 	color: white;
 	font-size: 2rem;
 	font-weight: 700;
 }
 
 .news-text {
+	margin: 0;
 	font-size: 1rem;
-	color: rgba(255, 255, 255, 0.9);
-	max-width: 600px;
-	margin: 0 auto 2rem;
 	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.9);
 }
 
 .news-section .btn-primary {
@@ -428,9 +391,12 @@ const props = withDefaults(
 }
 
 .news-section .btn-primary:hover {
-	background: rgba(255, 255, 255, 0.9);
-	color: var(--color-primary);
+	color: white;
 	transform: translateY(-2px);
+	box-shadow: var(--shadow-lg);
+	background: var(--color-primary);
+	border-color: var(--color-primary);
+	transition: all 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -456,7 +422,7 @@ const props = withDefaults(
 		gap: 1.5rem;
 	}
 
-	.leadership-grid {
+	.leadership-card-container {
 		grid-template-columns: 1fr;
 		gap: 2rem;
 	}
