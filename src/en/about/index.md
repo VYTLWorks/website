@@ -1,3 +1,8 @@
+---
+layout: doc
+title: About
+---
+
 # About MetaSafe
 
 ## Revolutionary Shock Absorption Technology
@@ -11,7 +16,7 @@ Structures traditionally used in the automotive industry, e.g., crash cans or st
 The metamaterial is **100 times stiffer** and **20 times more dissipative** than current solutions used for shielding batteries.
 
 ![Dissipative Metamaterials](/assets/figures/dissipative-metamaterials-figure.png)
-*Figure 1: (a) Our dissipative metamaterials. In contrast with traditional structures and metamaterials, which have an inherent trade-off between stiffness and dissipation, our dissipative metamaterials exploit a particular occurrence of elastoplastic buckling, which make them buckle in a controlled sequence upon compression or shocks (b). (c) As a result, they exhibit an exceptionally high dissipation to weight ratio, which beats all traditional structures by orders of magnitude.*
+_Figure 1: (a) Our dissipative metamaterials. In contrast with traditional structures and metamaterials, which have an inherent trade-off between stiffness and dissipation, our dissipative metamaterials exploit a particular occurrence of elastoplastic buckling, which make them buckle in a controlled sequence upon compression or shocks (b). (c) As a result, they exhibit an exceptionally high dissipation to weight ratio, which beats all traditional structures by orders of magnitude._
 
 ## How It Works
 
@@ -31,7 +36,7 @@ In this feasibility study, we will establish these dissipative metamaterials as 
 Beyond the EV sector, this new generation of dissipative metamaterials holds potential applications in:
 
 - **Aerospace** - Lightweight structural protection
-- **Defence** - Impact-resistant systems  
+- **Defence** - Impact-resistant systems
 - **Personal Protective Equipment** - Advanced helmets, body armor, and sports protection
 - **Seismic Protection** - Building and infrastructure safety
 - **Industrial Applications** - Where lightweight, high-performance shock absorption is critical

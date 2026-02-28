@@ -1,72 +1,55 @@
+import { LeadershipCardProps } from "./leadership-card";
 import { FeatureCardProps, StatItemProps, TeamMemberCardProps } from "./types";
 
-export const FEATURE_CARDS = [
+export const LEADERSHIP_MEMBERS = [
 	{
-		title: "Consectetur",
-		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
-		iconColor: "var(--color-secondary)",
-		icon: "fas fa-rocket",
+		name: "Bernard Ennis",
+		role: "Co-Founder & CEO",
+		expertise:
+			"30+ years industrial experience in Automotive, Marine and Electrical sectors",
+		imageSrc: "/assets/team/Bernard_C12_0740_head.jpg",
+		imageAlt: "Bernard",
 	},
 	{
-		title: "Adipiscing",
+		name: "Corentin Coulais",
+		role: "Co-Founder & CSO",
+		expertise: "Associate Professor, University of Amsterdam",
+		imageSrc: "/assets/team/Corentin_C12_0783_profile.jpg",
+		imageAlt: "Corentin",
+	},
+] as const satisfies LeadershipCardProps[];
+
+export const BENEFIT_CARDS = [
+	{
+		title: "Significant Weight Reduction",
 		description:
-			"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+			"Without compromising crash performance, enabling increased driving range and reduced CO₂ footprint.",
+		iconColor: "var(--color-secondary)",
+		icon: "fa-solid fa-weight-hanging",
+	},
+	{
+		title: "Tuneable, High-Energy Absorption",
+		description:
+			"Compact form factor delivers superior protection in minimal space.",
 		iconColor: "var(--color-primary)",
-		icon: "fas fa-lightbulb",
+		icon: "fa-solid fa-gauge",
 	},
 	{
-		title: "Eiusmod",
-		description:
-			"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.",
+		title: "Manufacturing Compatibility",
+		description: "Works with industrial manufacturing routes:",
 		iconColor: "var(--color-accent)",
-		icon: "fas fa-shield-alt",
+		icon: "fa-solid fa-industry",
 	},
 	{
-		title: "Tempor",
+		title: "Cost-Neutral Integration",
 		description:
-			"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
+			"Seamlessly integrates into existing battery‑box designs without premium costs.",
 		iconColor: "var(--color-secondary)",
-		icon: "fas fa-cog",
+		icon: "fa-solid fa-money-bill-wave",
 	},
 ] as const satisfies FeatureCardProps[];
 
-export const TEAM_MEMBERS = [
-	{
-		name: "Lorem Ipsum",
-		role: "Dolor Sit",
-		image: "https://via.placeholder.com/400x400/FF5758/FFFFFF?text=LI",
-		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.",
-		social: {
-			linkedin: "#",
-			twitter: "#",
-			github: "#",
-		},
-	},
-	{
-		name: "Consectetur Elit",
-		role: "Adipiscing",
-		image: "https://via.placeholder.com/400x400/00A6A6/FFFFFF?text=CE",
-		description:
-			"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
-		social: {
-			linkedin: "#",
-			github: "#",
-		},
-	},
-	{
-		name: "Tempor Incididunt",
-		role: "Eiusmod",
-		image: "https://via.placeholder.com/400x400/4AB3F4/FFFFFF?text=TI",
-		description:
-			"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-		social: {
-			linkedin: "#",
-			twitter: "#",
-		},
-	},
-] as const satisfies TeamMemberCardProps[];
+// MOCK DATA ------------------------------------------------------------------------------------
 
 // demo data
 export const STATS = [

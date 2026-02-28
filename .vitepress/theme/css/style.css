@@ -133,15 +133,15 @@
  * Home page overrides - remove VitePress container constraints
  */
 .VPContent.is-home .vp-doc.container {
-	max-width: none !important;
-	padding: 0 !important;
-	margin: 0 !important;
+	margin: 0;
+	padding: 0;
+	max-width: none;
 }
 
 .VPContent.is-home .VPHome {
-	margin-bottom: 0 !important;
+	margin-bottom: 0;
 }
 
 .VPContent.is-home .content-container {
-	max-width: none !important;
+	max-width: none;
 }

@@ -1,3 +1,8 @@
+---
+layout: doc
+title: Team
+---
+
 # Meet Our Team
 
 Our dedicated team brings together expertise in materials science, engineering, and innovation to deliver cutting-edge protection solutions.
@@ -55,9 +60,10 @@ Our dedicated team brings together expertise in materials science, engineering, 
 <style scoped>
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+  width: 100%;
 }
 
 .team-card {
@@ -67,6 +73,9 @@ Our dedicated team brings together expertise in materials science, engineering, 
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid var(--vp-c-divider);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .team-card:hover {
@@ -84,6 +93,12 @@ Our dedicated team brings together expertise in materials science, engineering, 
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--vp-c-brand);
+}
+
+.team-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .team-info h3 {
@@ -107,13 +122,15 @@ Our dedicated team brings together expertise in materials science, engineering, 
   font-size: 0.9rem;
   line-height: 1.5;
   margin: 1rem 0;
+  flex: 1;
 }
 
 .team-social {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: auto;
+  padding-top: 1rem;
 }
 
 .team-social a {
