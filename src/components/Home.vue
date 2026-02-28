@@ -56,18 +56,6 @@
 				</div>
 			</div>
 		</section>
-		<!-- <section class="section stats">
-			<div class="container">
-				<div class="stats-grid">
-					<StatItem
-						v-for="stat in STATS"
-						:key="stat.label"
-						:number="stat.number"
-						:label="stat.label"
-					/>
-				</div>
-			</div>
-		</section> -->
 		<section class="section team-section">
 			<div class="container">
 				<h2 class="section-title">Leadership</h2>
@@ -95,7 +83,13 @@
 		<section class="section news-section">
 			<div class="container">
 				<div class="news-content">
-					<h2 class="news-title">Want to Know More?</h2>
+					<div class="news-tagline">
+						<h2 class="news-title">Want to Know More?</h2>
+						<p class="news-text">
+							Stay updated with the latest news, insights, and developments from
+							MetaSafe.
+						</p>
+					</div>
 					<a
 						:href="constructLocaleWithLocaleSegment(locale, '/news/')"
 						class="btn btn-primary"
@@ -112,9 +106,10 @@
 import VideoSection from "../components/VideoSection.vue";
 import ThemeToggle from "../components/ThemeToggle.vue";
 import FeatureCard from "../components/FeatureCard.vue";
-import { BENEFIT_CARDS, LEADERSHIP_MEMBERS } from "./home-data";
+import { BENEFIT_CARDS } from "./home-data";
+import { LEADERSHIP_MEMBERS } from "./team/team";
 import { constructLocaleWithLocaleSegment } from "../utils/pathHelper";
-import LeadershipCard from "./LeadershipCard.vue";
+import LeadershipCard from "./team/LeadershipCard.vue";
 
 // @ts-expect-error - png import
 import logoSrc from "../assets/branding/MetaSafe_logo_3.2.png";
@@ -367,18 +362,26 @@ const props = withDefaults(
 	justify-content: center;
 }
 
+.news-tagline {
+	gap: 0.75rem;
+	display: flex;
+	align-items: center;
+	padding-bottom: 2rem;
+	flex-direction: column;
+}
+
 .news-title {
+	margin: 0;
 	color: white;
 	font-size: 2rem;
 	font-weight: 700;
 }
 
 .news-text {
+	margin: 0;
 	font-size: 1rem;
-	color: rgba(255, 255, 255, 0.9);
-	max-width: 600px;
-	margin: 0 auto 2rem;
 	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.9);
 }
 
 .news-section .btn-primary {
@@ -388,9 +391,12 @@ const props = withDefaults(
 }
 
 .news-section .btn-primary:hover {
-	background: rgba(255, 255, 255, 0.9);
-	color: var(--color-primary);
+	color: white;
 	transform: translateY(-2px);
+	box-shadow: var(--shadow-lg);
+	background: var(--color-primary);
+	border-color: var(--color-primary);
+	transition: all 0.3s ease;
 }
 
 @media (max-width: 768px) {

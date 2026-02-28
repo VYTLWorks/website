@@ -6,13 +6,18 @@ export default defineConfig({
 	srcDir: "./src",
 	cleanUrls: true,
 	metaChunk: true,
-	lastUpdated: true,
+	lastUpdated: false,
 	outDir: ".vitepress/dist",
 	base: process.env["VP_BASE"] || "/",
 	head: [
-		["link", { rel: "icon", type: "image/png", href: "/assets/branding/MetaSafe_logo_3.2.png" }],
-		// Note: remove font-awesome if not used in the project to reduce bundle size
-		// question to Bernard
+		[
+			"link",
+			{
+				rel: "icon",
+				type: "image/png",
+				href: "/assets/branding/MetaSafe_logo_3.2.png",
+			},
+		],
 		[
 			"link",
 			{

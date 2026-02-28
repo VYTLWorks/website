@@ -29,8 +29,8 @@ defineProps<LeadershipCardProps>();
 	align-items: center;
 	flex-direction: column;
 	border-radius: 0.5rem;
-	background-color: var(--bg-card);
-	border: 1px solid var(--border-color);
+	background: var(--vp-c-bg-soft);
+	border: 1px solid var(--vp-c-divider);
 }
 
 .leadership-card:hover {

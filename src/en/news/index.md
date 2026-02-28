@@ -1,7 +1,6 @@
 ---
 layout: doc
 title: News
-lastUpdated: false
 ---
 
 # Latest News
