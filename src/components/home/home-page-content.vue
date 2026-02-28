@@ -21,21 +21,21 @@
 				</div>
 			</div>
 		</section>
-		<section class="section video-highlight">
-			<div class="container">
-				<h2 class="section-title">Understanding MetaSafe</h2>
-				<p class="section-subtitle">
-					The science and technology behind MetaSafe's advanced protection solutions.
-				</p>
-				<video-section :videoUrl="videoSrc" />
-			</div>
-		</section>
-		<section class="section features">
-			<div class="container">
-				<h2 class="section-title">Key Features</h2>
-				<p class="section-subtitle">
-					Discover the innovative features that make MetaSafe's protection solutions stand out.
-				</p>
+		<home-section
+			class="video-highlight"
+			title="Understanding MetaSafe"
+			subtitle="The science and technology behind MetaSafe's advanced protection solutions."
+		>
+			<template #default>
+				<video-section :video-url="videoSrc" />
+			</template>
+		</home-section>
+		<div class="separator" />
+		<home-section
+			title="Key Features"
+			subtitle="Discover the innovative features that make MetaSafe's protection solutions stand out."
+		>
+			<template #default>
 				<div class="features-grid">
 					<feature-card
 						v-for="props in BENEFIT_CARDS"
@@ -46,15 +46,14 @@
 						:icon="props.icon"
 					/>
 				</div>
-			</div>
-		</section>
-		<section class="section team-section">
-			<div class="container">
-				<h2 class="section-title">Leadership</h2>
-				<p class="section-subtitle">
-					MetaSafe is led by experienced co-founders combining academic research excellence with
-					industrial expertise
-				</p>
+			</template>
+		</home-section>
+		<home-section
+			class="leadership-section"
+			title="Leadership"
+			subtitle="MetaSafe is led by experienced co-founders combining academic research excellence with industrial expertise"
+		>
+			<template #default>
 				<div class="leadership-card-container">
 					<leadership-card
 						v-for="leadershipMember in LEADERSHIP_MEMBERS"
@@ -63,15 +62,12 @@
 					/>
 				</div>
 				<div class="team-actions">
-					<a
-						:href="constructLocaleWithLocaleSegment(locale, '/team/')"
-						class="btn btn-primary btn-lg"
-					>
+					<a :href="constructLocaleWithLocaleSegment(locale, '/team/')" class="btn btn-primary">
 						Meet the Full Team
 					</a>
 				</div>
-			</div>
-		</section>
+			</template>
+		</home-section>
 		<section class="section news-section">
 			<div class="container">
 				<div class="news-content">
@@ -91,27 +87,21 @@
 </template>
 
 <script setup lang="ts">
-import VideoSection from '../components/video-section.vue';
-import ThemeToggle from '../components/theme-toggle.vue';
+import VideoSection from './video-section.vue';
+import ThemeToggle from '~/components/theme/theme-toggle.vue';
 import FeatureCard from './feature-card.vue';
-import { BENEFIT_CARDS } from './home-page-data';
-import { LEADERSHIP_MEMBERS } from './team/team-page-data';
-import { constructLocaleWithLocaleSegment } from '../utils/path-helper';
-import LeadershipCard from './team/leadership-card.vue';
+import { BENEFIT_CARDS, type HomePageContentProps } from './home-page-data';
+import { LEADERSHIP_MEMBERS } from '~/components/team/team-page-data';
+import { constructLocaleWithLocaleSegment } from '~/utils/path-helper';
+import LeadershipCard from '~/components/team/leadership-card.vue';
 
-// @ts-expect-error - png import
-import logoSrc from '../assets/branding/MetaSafe_logo_3.2.png';
-// @ts-expect-error - svg import
-import videoSrc from '../assets/video/AMSIA.mp4';
+import logoSrc from '~/assets/branding/MetaSafe_logo_3.2.png';
+import videoSrc from '~/assets/video/AMSIA.mp4';
+import HomeSection from './home-section.vue';
 
-const props = withDefaults(
-	defineProps<{
-		locale?: string;
-	}>(),
-	{
-		locale: 'en',
-	},
-);
+const props = withDefaults(defineProps<HomePageContentProps>(), {
+	locale: 'en',
+});
 </script>
 
 <style scoped>
@@ -148,7 +138,7 @@ const props = withDefaults(
 
 .section {
 	width: 100%;
-	padding: 5rem 0;
+	padding: 3rem 0;
 }
 
 .container {
@@ -159,6 +149,13 @@ const props = withDefaults(
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
+}
+
+.container-header {
+	gap: 1rem;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
 
 .hero {
@@ -257,12 +254,12 @@ const props = withDefaults(
 }
 
 .section-subtitle {
+	margin: 0;
 	font-size: 1rem;
+	max-width: 600px;
+	line-height: 1.6;
 	text-align: center;
 	color: var(--text-secondary);
-	max-width: 600px;
-	margin: 0 auto 3rem;
-	line-height: 1.6;
 }
 
 .video-highlight {
@@ -271,15 +268,24 @@ const props = withDefaults(
 	margin-top: 0;
 }
 
+.video-container {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 1rem 3rem;
+}
+
 .features {
 	width: 100%;
 }
 
 .features-grid {
+	gap: 1rem;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-	gap: 2rem;
-	margin-top: 3rem;
+	padding: 0 2.5rem;
+	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
 .stats {
@@ -295,7 +301,7 @@ const props = withDefaults(
 	text-align: center;
 }
 
-.team-section {
+.leadership-section {
 	width: 100%;
 	background: var(--bg-primary);
 }
@@ -368,7 +374,18 @@ const props = withDefaults(
 	transition: all 0.3s ease;
 }
 
+.separator {
+	width: 100%;
+	height: 1px;
+	background: var(--border-color);
+}
+
 @media (max-width: 768px) {
+	.home {
+		height: 100vh;
+		padding-bottom: 3rem;
+	}
+
 	.section {
 		padding: 3rem 0;
 	}
@@ -382,8 +399,8 @@ const props = withDefaults(
 	}
 
 	.features-grid {
-		grid-template-columns: 1fr;
 		gap: 1.5rem;
+		grid-template-columns: 1fr;
 	}
 }
 </style>
