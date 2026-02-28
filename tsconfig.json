@@ -16,12 +16,12 @@
 			"~vitepress/*": ["./.vitepress/*"]
 		}
 	},
+	"exclude": ["node_modules"],
 	"include": [
 		"env.d.ts",
 		"src/**/*.ts",
 		"src/**/*.vue",
 		".vitepress/**/*.ts",
 		".vitepress/**/*.vue"
-	],
-	"exclude": ["node_modules"]
+	]
 }
