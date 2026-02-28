@@ -12,10 +12,16 @@
 					MetaSafe BV is a wholly owned subsidiary of MetaMaterial Works BV.
 				</p>
 				<div class="hero-actions">
-					<a :href="constructLocaleWithLocaleSegment(locale, '/product/')" class="btn btn-primary">
+					<a
+						:href="constructLocaleWithLocaleSegment(locale, '/product/')"
+						class="btn btn-primary"
+					>
 						Product
 					</a>
-					<a :href="constructLocaleWithLocaleSegment(locale, '/about/')" class="btn btn-secondary">
+					<a
+						:href="constructLocaleWithLocaleSegment(locale, '/about/')"
+						class="btn btn-secondary"
+					>
 						About Us
 					</a>
 				</div>
@@ -62,7 +68,10 @@
 					/>
 				</div>
 				<div class="team-actions">
-					<a :href="constructLocaleWithLocaleSegment(locale, '/team/')" class="btn btn-primary">
+					<a
+						:href="constructLocaleWithLocaleSegment(locale, '/team/')"
+						class="btn btn-primary"
+					>
 						Meet the Full Team
 					</a>
 				</div>
@@ -74,10 +83,14 @@
 					<div class="news-tagline">
 						<h2 class="news-title">Want to Know More?</h2>
 						<p class="news-text">
-							Stay updated with the latest news, insights, and developments from MetaSafe.
+							Stay updated with the latest news, insights, and developments from
+							MetaSafe.
 						</p>
 					</div>
-					<a :href="constructLocaleWithLocaleSegment(locale, '/news/')" class="btn btn-primary">
+					<a
+						:href="constructLocaleWithLocaleSegment(locale, '/news/')"
+						class="btn btn-primary"
+					>
 						Read Our News
 					</a>
 				</div>
@@ -87,20 +100,21 @@
 </template>
 
 <script setup lang="ts">
-import VideoSection from './video-section.vue';
-import ThemeToggle from '~/components/theme/theme-toggle.vue';
-import FeatureCard from './feature-card.vue';
-import { BENEFIT_CARDS, type HomePageContentProps } from './home-page-data';
-import { LEADERSHIP_MEMBERS } from '~/components/team/team-page-data';
-import { constructLocaleWithLocaleSegment } from '~/utils/path-helper';
-import LeadershipCard from '~/components/team/leadership-card.vue';
+import VideoSection from "./video-section.vue";
+import ThemeToggle from "~/components/theme/theme-toggle.vue";
+import FeatureCard from "./feature-card.vue";
+import { BENEFIT_CARDS, type HomePageContentProps } from "./home-page-data";
+import { LEADERSHIP_MEMBERS } from "~/components/team/team-page-data";
+import { constructLocaleWithLocaleSegment } from "~/utils/path-helper";
+import LeadershipCard from "~/components/team/leadership-card.vue";
+import { SupportedLocales } from "~vitepress/theme";
 
-import logoSrc from '~/assets/branding/MetaSafe_logo_3.2.png';
-import videoSrc from '~/assets/video/AMSIA.mp4';
-import HomeSection from './home-section.vue';
+import logoSrc from "~/assets/branding/MetaSafe_logo_3.2.png";
+import videoSrc from "~/assets/video/AMSIA.mp4";
+import HomeSection from "./home-section.vue";
 
 const props = withDefaults(defineProps<HomePageContentProps>(), {
-	locale: 'en',
+	locale: () => SupportedLocales.EN,
 });
 </script>
 
@@ -151,13 +165,6 @@ const props = withDefaults(defineProps<HomePageContentProps>(), {
 	justify-content: center;
 }
 
-.container-header {
-	gap: 1rem;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-}
-
 .hero {
 	width: 100%;
 	display: flex;
@@ -166,7 +173,11 @@ const props = withDefaults(defineProps<HomePageContentProps>(), {
 	text-align: center;
 	align-items: center;
 	justify-content: center;
-	background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+	background: linear-gradient(
+		135deg,
+		var(--bg-primary) 0%,
+		var(--bg-secondary) 100%
+	);
 }
 
 .hero-logo {
@@ -184,7 +195,11 @@ const props = withDefaults(defineProps<HomePageContentProps>(), {
 
 .gradient-text {
 	background-clip: text;
-	background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+	background: linear-gradient(
+		135deg,
+		var(--color-primary) 0%,
+		var(--color-secondary) 100%
+	);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -240,65 +255,25 @@ const props = withDefaults(defineProps<HomePageContentProps>(), {
 	border-color: var(--color-secondary);
 }
 
-.btn-lg {
-	font-size: 1rem;
-	padding: 0.875rem 2rem;
-}
-
-.section-title {
-	font-size: clamp(2rem, 4vw, 3rem);
-	font-weight: 700;
-	text-align: center;
-	color: var(--text-primary);
-	margin: 0 0 1rem 0;
-}
-
-.section-subtitle {
-	margin: 0;
-	font-size: 1rem;
-	max-width: 600px;
-	line-height: 1.6;
-	text-align: center;
-	color: var(--text-secondary);
-}
-
 .video-highlight {
 	width: 100%;
 	background: transparent;
 	margin-top: 0;
 }
 
-.video-container {
-	display: flex;
-	gap: 1rem;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 1rem 3rem;
-}
-
-.features {
-	width: 100%;
-}
-
 .features-grid {
-	gap: 1rem;
+	gap: 1.5rem;
 	display: grid;
 	padding: 0 2.5rem;
-	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	grid-template-columns: repeat(2, 1fr);
+	max-width: 850px;
+	margin: 0 auto;
 }
 
-.stats {
-	width: 100%;
-	background: var(--bg-secondary);
-}
-
-.stats-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	gap: 3rem;
-	width: 100%;
-	text-align: center;
+@media (max-width: 768px) {
+	.features-grid {
+		grid-template-columns: 1fr;
+	}
 }
 
 .leadership-section {
@@ -323,7 +298,11 @@ const props = withDefaults(defineProps<HomePageContentProps>(), {
 
 .news-section {
 	width: 100%;
-	background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+	background: linear-gradient(
+		135deg,
+		var(--color-primary) 0%,
+		var(--color-secondary) 100%
+	);
 	margin-top: auto;
 	padding-bottom: 5rem;
 }

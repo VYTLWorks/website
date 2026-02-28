@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { type FeatureCardProps } from '~/components/home/types';
+import { type FeatureCardProps } from "~/components/home/types";
 
 defineProps<FeatureCardProps>();
 </script>
@@ -20,35 +20,43 @@ defineProps<FeatureCardProps>();
 .feature-card {
 	height: 100%;
 	padding: 1.5rem;
-	border-radius: 0.75rem;
-	transition: all 0.3s ease;
-	background: var(--bg-card);
-	border: 1px solid var(--border-color);
+	border-radius: 1rem;
+	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	background: var(--vp-c-bg-soft);
+	border: 1px solid var(--vp-c-divider);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .feature-card:hover {
-	transform: translateY(-4px);
-	box-shadow: var(--shadow-lg);
-	border-color: var(--color-secondary);
+	transform: translateY(-2px) scale(1.01);
+	box-shadow: 0 8px 30px var(--vp-shadow-2);
+	border-color: var(--vp-c-brand-1);
 }
 
 .feature-header {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
+	flex-direction: column;
 	gap: 1rem;
 	margin-bottom: 1rem;
 }
 
 .feature-icon {
-	width: 40px;
-	height: 40px;
-	min-width: 40px;
+	width: 48px;
+	height: 48px;
+	min-width: 48px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 50%;
+	border-radius: 0.875rem;
 	color: white;
-	font-size: 1rem;
+	font-size: 1.25rem;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover .feature-icon {
+	transform: scale(1.05);
 }
 
 .feature-icon i {
@@ -60,14 +68,37 @@ defineProps<FeatureCardProps>();
 .feature-title {
 	margin: 0;
 	font-weight: 600;
-	font-size: 1.25rem;
-	color: var(--text-primary);
+	font-size: 1.125rem;
+	color: var(--vp-c-text-1);
+	letter-spacing: -0.01em;
 }
 
 .feature-description {
 	margin: 0;
-	font-size: 1rem;
-	line-height: 1.5;
-	color: var(--text-secondary);
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	color: var(--vp-c-text-2);
+	font-weight: 400;
+}
+
+@media (max-width: 768px) {
+	.feature-card {
+		padding: 1.25rem;
+	}
+
+	.feature-icon {
+		width: 40px;
+		height: 40px;
+		min-width: 40px;
+		font-size: 1.125rem;
+	}
+
+	.feature-title {
+		font-size: 1rem;
+	}
+
+	.feature-description {
+		font-size: 0.875rem;
+	}
 }
 </style>
