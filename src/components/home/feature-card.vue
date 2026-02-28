@@ -1,11 +1,7 @@
 <template>
 	<article class="feature-card" role="listitem">
 		<div class="feature-header">
-			<div
-				class="feature-icon"
-				:style="{ backgroundColor: iconColor }"
-				aria-hidden="true"
-			>
+			<div class="feature-icon" :style="{ backgroundColor: iconColor }" aria-hidden="true">
 				<i :class="icon"></i>
 			</div>
 			<h3 class="feature-title">{{ title }}</h3>
@@ -15,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { type FeatureCardProps } from "~/components/home/types";
+import { type FeatureCardProps } from '~/components/home/types';
 
 defineProps<FeatureCardProps>();
 </script>
