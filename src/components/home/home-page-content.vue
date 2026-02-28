@@ -12,16 +12,10 @@
 					MetaSafe BV is a wholly owned subsidiary of MetaMaterial Works BV.
 				</p>
 				<div class="hero-actions">
-					<a
-						:href="constructLocaleWithLocaleSegment(locale, '/product/')"
-						class="btn btn-primary"
-					>
+					<a :href="constructLocaleWithLocaleSegment(locale, '/product/')" class="btn btn-primary">
 						Product
 					</a>
-					<a
-						:href="constructLocaleWithLocaleSegment(locale, '/about/')"
-						class="btn btn-secondary"
-					>
+					<a :href="constructLocaleWithLocaleSegment(locale, '/about/')" class="btn btn-secondary">
 						About Us
 					</a>
 				</div>
@@ -68,10 +62,7 @@
 					/>
 				</div>
 				<div class="team-actions">
-					<a
-						:href="constructLocaleWithLocaleSegment(locale, '/team/')"
-						class="btn btn-primary"
-					>
+					<a :href="constructLocaleWithLocaleSegment(locale, '/team/')" class="btn btn-primary">
 						Meet the Full Team
 					</a>
 				</div>
@@ -83,14 +74,10 @@
 					<div class="news-tagline">
 						<h2 class="news-title">Want to Know More?</h2>
 						<p class="news-text">
-							Stay updated with the latest news, insights, and developments from
-							MetaSafe.
+							Stay updated with the latest news, insights, and developments from MetaSafe.
 						</p>
 					</div>
-					<a
-						:href="constructLocaleWithLocaleSegment(locale, '/news/')"
-						class="btn btn-primary"
-					>
+					<a :href="constructLocaleWithLocaleSegment(locale, '/news/')" class="btn btn-primary">
 						Read Our News
 					</a>
 				</div>
@@ -100,18 +87,18 @@
 </template>
 
 <script setup lang="ts">
-import VideoSection from "./video-section.vue";
-import ThemeToggle from "~/components/theme/theme-toggle.vue";
-import FeatureCard from "./feature-card.vue";
-import { BENEFIT_CARDS, type HomePageContentProps } from "./home-page-data";
-import { LEADERSHIP_MEMBERS } from "~/components/team/team-page-data";
-import { constructLocaleWithLocaleSegment } from "~/utils/path-helper";
-import LeadershipCard from "~/components/team/leadership-card.vue";
-import { SupportedLocales } from "~vitepress/theme";
+import VideoSection from './video-section.vue';
+import ThemeToggle from '~/components/theme/theme-toggle.vue';
+import FeatureCard from './feature-card.vue';
+import { BENEFIT_CARDS, type HomePageContentProps } from './home-page-data';
+import { LEADERSHIP_MEMBERS } from '~/components/team/team-page-data';
+import { constructLocaleWithLocaleSegment } from '~/utils/path-helper';
+import LeadershipCard from '~/components/team/leadership-card.vue';
+import { SupportedLocales } from '~vitepress/theme';
 
-import logoSrc from "~/assets/branding/MetaSafe_logo_3.2.png";
-import videoSrc from "~/assets/video/AMSIA.mp4";
-import HomeSection from "./home-section.vue";
+import logoSrc from '~/assets/branding/MetaSafe_logo_3.2.png';
+import videoSrc from '~/assets/video/AMSIA.mp4';
+import HomeSection from './home-section.vue';
 
 const props = withDefaults(defineProps<HomePageContentProps>(), {
 	locale: () => SupportedLocales.EN,
@@ -173,11 +160,7 @@ const props = withDefaults(defineProps<HomePageContentProps>(), {
 	text-align: center;
 	align-items: center;
 	justify-content: center;
-	background: linear-gradient(
-		135deg,
-		var(--bg-primary) 0%,
-		var(--bg-secondary) 100%
-	);
+	background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
 
 .hero-logo {
@@ -195,11 +178,7 @@ const props = withDefaults(defineProps<HomePageContentProps>(), {
 
 .gradient-text {
 	background-clip: text;
-	background: linear-gradient(
-		135deg,
-		var(--color-primary) 0%,
-		var(--color-secondary) 100%
-	);
+	background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -298,11 +277,7 @@ const props = withDefaults(defineProps<HomePageContentProps>(), {
 
 .news-section {
 	width: 100%;
-	background: linear-gradient(
-		135deg,
-		var(--color-primary) 0%,
-		var(--color-secondary) 100%
-	);
+	background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
 	margin-top: auto;
 	padding-bottom: 5rem;
 }

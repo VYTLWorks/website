@@ -3,9 +3,8 @@
 		<div class="team-header">
 			<h1>Meet Our Team</h1>
 			<p class="team-intro">
-				Our dedicated team brings together expertise in materials science,
-				engineering, and innovation to deliver cutting-edge protection
-				solutions.
+				Our dedicated team brings together expertise in materials science, engineering, and
+				innovation to deliver cutting-edge protection solutions.
 			</p>
 		</div>
 		<div class="team-list-container">
@@ -24,8 +23,8 @@
 </template>
 
 <script setup lang="ts">
-import { type TeamPageProps } from "~/components/team/team-page-data";
-import TeamMemberCard from "~/components/team/team-member-card.vue";
+import { type TeamPageProps } from '~/components/team/team-page-data';
+import TeamMemberCard from '~/components/team/team-member-card.vue';
 
 defineProps<TeamPageProps>();
 </script>
