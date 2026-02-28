@@ -4,7 +4,11 @@
 		<div class="news-list-item-content">
 			<div class="news-list-item-header">
 				<h3 class="news-list-item-title">{{ title }}</h3>
-				<p v-if="description" class="news-list-item-description" v-html="markdownToHtml(description || '')"></p>
+				<p
+					v-if="description"
+					class="news-list-item-description"
+					v-html="markdownToHtml(description || '')"
+				></p>
 			</div>
 			<p class="news-list-item-created-at">
 				{{ createdAt }}

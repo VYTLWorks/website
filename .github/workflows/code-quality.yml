@@ -54,3 +54,25 @@ jobs:
 
       - name: Run format check
         run: pnpm fmt:check
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Copy this repo to the action folder
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install node
+        uses: actions/setup-node@v5
+        with:
+          node-version: lts/*
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run lint
+        run: pnpm lint
