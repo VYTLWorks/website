@@ -10,7 +10,6 @@ export const VP_BASE = process.env['VP_BASE'] || '/website/';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
 	srcDir: './src',
-	publicDir: '../public',
 	cleanUrls: true,
 	metaChunk: true,
 	lastUpdated: false,
