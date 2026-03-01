@@ -31,24 +31,17 @@ export default defineConfig({
 		[
 			'link',
 			{
-				rel: 'icon',
-				type: 'image/png',
-				href: './MetaSafe_logo_3.2.png',
-			},
-		],
-		[
-			'link',
-			{
 				rel: 'stylesheet',
 				href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
 			},
 		],
+		['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.png' }],
 		['meta', { name: 'theme-color', content: '#5b21b6' }],
 		['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
 		['link', { rel: 'manifest', href: `${VP_BASE}manifest.json` }],
 	],
 	themeConfig: {
-		logo: '/assets/branding/MetaSafe_logo_3.2.png',
+		logo: '/assets/logo.png',
 		search: {
 			provider: 'local',
 		},
