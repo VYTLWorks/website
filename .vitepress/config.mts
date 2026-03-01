@@ -33,7 +33,7 @@ export default defineConfig({
 			{
 				rel: 'icon',
 				type: 'image/png',
-				href: `${VP_BASE}assets/branding/MetaSafe_logo_3.2.png`,
+				href: `/assets/branding/MetaSafe_logo_3.2.png`,
 			},
 		],
 		[
